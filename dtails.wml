@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml">
+
+<wml>
+
+<card id="directory" title="DIRECTORY"> 
+
+<do type="unknown" label="Submit">
+
+ <go href="http://localhost:8000/Details.jsp">
+  <postfield name="mob_no" value="$mob_no"/>
+ </go>
+
+</do>
+
+<p align="center">
+  Enter the mobile no.
+  <input type="text" name="mob_no"/>
+</p>
+
+</card>
+</wml>
+

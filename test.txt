@@ -1,0 +1,117 @@
+/*try{
+	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+}
+catch(ClassNotFoundException cle)
+{
+	out.println("class not found Exception"); 
+} 
+
+try
+{
+	
+	con=DriverManager.getConnection("jdbc:odbc:proj","parthi","lolo");
+	sql="insert into smtable values(?,?,?,?)";	
+	pt=con.prepareStatement(sql);
+	pt.setString(1,ph);
+	pt.setString(2,cell);
+	pt.setString(3,subj);
+	pt.setString(4,mesg);
+	pt.executeUpdate();
+	con.commit();
+	pt.close();
+	con.close();
+
+ out.println("The message has been sent"); 
+
+}
+
+catch(SQLException sq)
+{
+	out.println("sql error"); 
+} */
+<%! String ph="",email="",subj="",mesg="",cell="",hname="",prt=""; %>
+<%! String times="",str="",from="",subj="",mesg="",sql=""; %>
+<%! Connection con=null; %>
+<%! PreparedStatement pt=null; %>
+
+
+<%
+// This is for email
+
+ph=(String)session.getValue("phno");
+cell=request.getParameter("to");
+subj=request.getParameter("subj");
+mesg=request.getParameter("mesg");
+out.println(ph+cell+subj+mesg);
+%>
+
+
+
+
+
+
+
+
+try
+{
+Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+}catch(ClassNotFoundException cl){out.println("class not found");}
+try
+{
+ Connection con=DriverManager.getConnection("jdbc:odbc:proj","parthi","lolo");
+Statement st=con.createStatement();
+String sql="select subj from smstable where to='"+to+"'";
+ResultSet rs=st.executeQuery(sql);
+%>
+Select Subject 
+<select name="sub">
+<%
+while(rs.next()){%>
+<option value="<%=subj%>"><%=subj%></option>
+<%}
+catch(SQLException ex){out.println("class not found");}
+%>
+
+
+
+
+
+<%! Connection con=null; %>
+<%! PreparedStatement pt; %>
+<%! Statement st=null; %>
+<%! ResultSet rs=null; %>
+<%! String ph="",time="",sql=""; %>
+
+
+try
+{
+Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+}catch(ClassNotFoundException cl){out.println("class not found");}
+try
+{
+	con=DriverManager.getConnection("jdbc:odbc:sms");
+	ph=request.getParameter("phno");
+	
+	
+	st=con.createStatement();
+	//It checks the entered phone number & time is valid or not
+	sql="select mfrom from smtable where mfrom='"+ph+"' and time='"+time+"' ";
+	rs=st.executeQuery(sql);
+	if(rs.next())
+	{
+	sql="delete from smtable where mfrom='"+ph+"' and time='"+time+"' ";
+	pt= con.prepareStatement(sql);
+	pt.executeUpdate();
+	out.println("Deleted...");
+	}
+	else
+	{	
+	
+%>		
+	<br/><b>! Invalid Entry !</b><br/><br/>
+	<a href="http://localhost:8000/delete.jsp">Try Again...</a>
+<%	
+	}
+
+}catch(SQLException sql)
+{out.println("SQL exception"); }	

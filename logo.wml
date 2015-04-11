@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml">
+
+<wml>
+
+<card id="ouser" title="Sign in">
+
+<onevent type="onenterbackward">
+<refresh>
+	<setvar name="phno" value=""/>
+	<setvar name="pass" value=""/>
+</refresh>
+</onevent>	
+<p>
+Mobile no:<input type="text" name="to" maxlength="14"  emptyok="false"> </input>
+
+</p>
+
+<do type="accept" label="Send-LOGO">
+	<go method="post" href="http://api.vodazone.co.za/http/sendmsg?api_id=1796&user=saritha&password=sari123">
+     <postfield name="to" value="$to"/>
+     <postfield name="msg_type" value="SMS_NOKIA_OLOGO"/>
+     <postfield name="text" value="00480e01ffffffffffffffffff800000000000000001800000000000
+0000018f1b30f1b30f1b30f9f9ff9f9ff9f9ff9f99819998199981999819f1999f1999f1999f18f9998f9998f9998f
+98199981999819998199f9999f9999f9999f98f1998f1998f1998f180000000000000000180000000000000
+0001ffffffffffffffffff"/>	
+</go>
+</do>
+</card>
+</wml>

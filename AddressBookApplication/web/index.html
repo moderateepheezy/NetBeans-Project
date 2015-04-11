@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Address Book Application</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Address Book Application</h1>
+        <p>This is a sample address book application to test Servlet with database</p>
+        <form action="AddressBookEntry" method="post">
+                <table>                  
+                    <tr>
+                        <td><b>First Name:</b></td>
+                        <td> <input type="text" name="f_name" value=""><br><br></td>
+                    </tr>
+                    <tr>
+                        <td><b>Last Name:</b>&nbsp;</td>
+                        <td><input type="text" name="l_name" value=""><br><br></td>
+                    </tr>
+                    <tr>
+                        <td><b>Street:</b></td>
+                        <td><input type="text" name="street" value=""><br><br></td>
+                    </tr>
+                    <tr>
+                        <td><b>City:</b></td>
+                        <td><input type="text" name="city" value=""><br><br></td>
+                    </tr>
+                    <tr>
+                        <td><b>State:</b>&nbsp;</td>
+                        <td><input type="text" name="state" value=""><br><br></td>
+                    </tr>
+                    <tr>
+                        <td><b>Zip-Code:</b>&nbsp;</td>
+                        <td><input type="text" name="zipcode" value=""><br><br></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" name="submit" value="Submit"/><br><br></td>
+                    </tr>
+                </table>
+            
+            <h2><a href="GetAllAddress">Click to get list of addresses.</a></h2>
+        </form>
+    </body>
+</html>

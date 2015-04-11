@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml">
+
+<wml>
+
+<card id="ouser" title="Sign in">
+
+<onevent type="onenterbackward">
+<refresh>
+	<setvar name="phno" value=""/>
+	<setvar name="pass" value=""/>
+</refresh>
+</onevent>	
+<p>
+Mobile no:<input type="text" name="to" maxlength="14"  emptyok="false"> </input>
+
+</p>
+
+<do type="accept" label="Send-RINGTONE">
+	<go method="post" href="http://api.vodazone.co.za/http/sendmsg?api_id=1975&user=kozhi&password=kozhi098">
+     <postfield name="to" value="$to"/>
+     <postfield name="msg_type" value="SMS_NOKIA_RINGTONE"/>
+     <postfield name="text" value="024A3A5585E195B198040042D9049741A69761781B6
+176156174288B525D85E0A26C24C49A617628930BB125E055856049865885D200"/>	
+</go>
+</do>
+</card>
+</wml>
+

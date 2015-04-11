@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml">
+
+<wml>
+
+<card id="ouser" title="Sign in">
+
+<onevent type="onenterbackward">
+<refresh>
+	<setvar name="to" value=""/>
+	<setvar name="text" value=""/>
+</refresh>
+</onevent>
+	
+<p>
+Mobile no:<input type="text" name="to" maxlength="14"  emptyok="false"> </input>
+Message:<input type="text" name="text" maxlength="14"  emptyok="false"> </input>
+</p>
+
+<do type="accept" label="Send-FLASH">
+     <go method="post" href="http://api.vodazone.co.za/http/sendmsg?api_id=1975&user=kozhi&password=kozhi098">
+     <postfield name="to" value="$to"/>
+     <postfield name="msg_type" value="SMS_FLASH"/>
+     <postfield name="text" value="$text"/>	
+</go>
+</do>
+</card>
+</wml>
+
+

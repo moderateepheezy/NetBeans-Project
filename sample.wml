@@ -1,0 +1,29 @@
+<%@ page language="java" %>
+<% response.setContentType("text/vnd.wap.wml"); %>
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml">
+
+<wml>
+
+<card id="ouser" title="Sign in">
+
+<onevent type="onenterbackward">
+<refresh>
+	<setvar name="phno" value=""/>
+	<setvar name="pass" value=""/>
+</refresh>
+</onevent>	
+<p>
+Mobile no:<input type="text" name="to" maxlength="14"  emptyok="false"> </input>
+
+</p>
+<do type="accept" label="Send-RINGTONE">
+	<go method="post" href="http://localhost:8000/tes.jsp">
+     <postfield name="to" value="$to"/>
+     <postfield name="udh" value="hai"/>
+     
+</go>
+</do>
+</card>
+</wml>
+
